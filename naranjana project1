@@ -1,0 +1,42 @@
+import pandas as pd
+import numpy as np 
+df = pd.read_csv("/content/drive/MyDrive/Colab Notebooks/Stores.csv")
+print("Shape:", df.shape)
+print("\nColumn Names:")
+print(df.columns)
+store_id = df["Store ID"].to_numpy()
+store_area = df["Store_Area"].to_numpy()
+items_available = df["Items_Available"].to_numpy()
+daily_customers = df["Daily_Customer_Count"].to_numpy()
+store_sales = df["Store_Sales"].to_numpy()
+print("Store ID :", store_id)
+print("Store Area :", store_area)
+print("Items Available :", items_available)
+print("Daily Customers :", daily_customers)
+print("Store Sales :", store_sales)
+[9:46 AM, 2/22/2026] Niranjana: user_input = int(input("Enter a Store ID: "))
+index_result = df[df['Store ID'] == user_input]
+
+if not index_result.empty:
+    print(index_result)
+else:
+    print("Store ID not found")
+[9:46 AM, 2/22/2026] Niranjana: start = int(input("Enter the start index: "))
+end = int(input("Enter the end index: "))
+
+slice_result = df[(df['Store ID'] >= start) & (df['Store ID'] <= end)]
+print(slice_result)
+[9:47 AM, 2/22/2026] Niranjana: print("Mean:", np.mean(store_sales))
+print("Median:", np.median(store_sales))
+print("Variance:", np.var(store_sales))
+print("Standard Deviation:", np.std(store_sales))
+[9:47 AM, 2/22/2026] Niranjana: df['Revenue'] = df['Store_Sales'] * df['Items_Available']
+print(df[['Store ID', 'Revenue']])
+[9:47 AM, 2/22/2026] Niranjana: user_input = int(input("Enter Store ID: "))
+result = df[df['Store ID'] == user_input]
+
+if not result.empty:
+    revenue = result['Store_Sales'] * result['Items_Available']
+    print("Revenue for Store ID", user_input, ":", revenue.values[0])
+else:
+    print("Store ID not found")# python
